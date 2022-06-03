@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Discord Time Stamp Generator</title>
+    <meta name="twitter:description" content="Helps you easily generate time stamps for discord">
+    <meta name="twitter:image" content="https://protogen.lol/TimeStampGenerator/assets/img/tsgen.png">
+    <meta property="og:type" content="website">
+    <meta name="description" content="Helps you easily generate time stamps for Discord">
+    <meta property="og:image" content="https://protogen.lol/TimeStampGenerator/assets/img/tsgen.png">
+    <meta name="twitter:title" content="Discord Time Stamp Generator">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Rai_Toon_Icon_Transp.png">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Rai_Toon_Icon_Transp.png">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Rai_Toon_Icon_Transp.png">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Rai_Toon_Icon_Transp.png">
+    <link rel="icon" type="image/png" sizes="1000x1000" href="assets/img/Rai_Toon_Icon_Transp.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background-color: #2C2F33;border-radius: 5px;">
+    <div style="display: flex;justify-content: center;align-items: center;margin-top: 10em;">
+        <div style="background-color: #292B2F;border-radius: 5px;padding-left: 30px;padding-right: 30px;padding-top: 15px;padding-bottom: 15px;filter: drop-shadow(5px 5px 5px #222222);">
+            <h1 style="font-size: 2em;color: rgb(228,228,228);text-align: center;">Discord Timestamp Generator</h1>
+            <p style="color: rgb(167,167,167);text-align: center;">This tool will help you generate Discord timestamps</p>
+            <div style="font-size: 0.9em;"><span style="color: rgb(228,228,228);padding-right: 1em;">The Date of which the TimeStamp will show</span><input data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" id="tDate" type="date" style="float: right;width: 162px;" placeholder="Input Date" min="1970/1/1" title="The date of which the TimeStamp will show"></div>
+            <div style="font-size: 0.9em;margin-top: 15px;"><span style="color: rgb(228,228,228);padding-right: 1em;">The type of TimeStamp</span><select data-bs-toggle="tooltip" data-bss-tooltip="" data-bs-placement="right" id="tType" style="float: right;width: 162px;border: 0px;border-radius: 3px;background-color: #40444b;color: #f3f3f3;-webkit-appearance: none;padding-left: 10px;" value="Full Time" title="The type of TimeStamp">
+                    <option value="<t:unix:d>">Date</option>
+                    <option value="<t:unix:f>">Full Date</option>
+                    <option value="<t:unix:t>">Time</option>
+                    <option value="<t:unix:D>">Descriptive Date</option>
+                    <option value="<t:unix:F>">Descriptive Full</option>
+                    <option value="<t:unix:R>">In/Ago</option>
+                    <option value="<t:unix:T>" selected="">Full Time</option>
+                </select></div><button class="btn btn-primary green" id="GenerateBTN" type="button" style="margin-top: 15px;width: 100%;" onclick="CalculateTimeStamp()">Generate TimeStamp</button>
+            <p id="tResult" style="color: #f3f3f3;margin-top: 10px;"></p>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/TimeStampGenerator.js"></script>
+</body>
+
+</html>

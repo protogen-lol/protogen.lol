@@ -18,8 +18,9 @@ module.exports.Load = function(app, root)
             {
                 var route = require(root + file)
                 app[route.method](route.route, route.execute)
+                Logging.info(`Load ${route.method}[${route.route}] : ${route.description}`)
             }
-            Logging.info(`Load ${route.method}[${route.route}] : ${route.description}`)
+            
         })
         Logging.success("Routes loaded!")
     })
