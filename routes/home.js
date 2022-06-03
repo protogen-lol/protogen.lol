@@ -4,6 +4,7 @@ module.exports = {
     method: 'get',
     execute: function(req, res)
     {
-        res.send("balls!")
+        // Return the main.html file from the static folder
+        res.sendFile('C:/Users/white/Documents/GitHub/protogen.lol/Static/main.html')
     }
 }
