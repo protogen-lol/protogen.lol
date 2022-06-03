@@ -1,0 +1,24 @@
+{
+  "name": "protogen.lol",
+  "version": "1.0.0",
+  "description": "The source files for protogen.lol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/protogen-lol/protogen.lol.git"
+  },
+  "author": "Rai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/protogen-lol/protogen.lol/issues"
+  },
+  "homepage": "https://protogen.lol",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.18.1",
+    "express-subdomain": "^1.0.5"
+  }
+}
