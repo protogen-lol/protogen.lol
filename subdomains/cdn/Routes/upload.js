@@ -41,6 +41,18 @@ module.exports = {
             var fext = ext(file.name)
             var newName = randName + "." + fext
 
+            var color = req.headers["color"] || "#2F3136"
+            var title = req.headers["title"] || "cdn.protogen.lol"
+            var description = req.headers["description"] || `Uploaded by ${authJS.Owner}`
+            var image_size = req.headers["image_size"] || "summary_large_image"
+
+            var Design = {
+                color: color,
+                title: title,
+                description: description,
+                image_size: image_size
+            }
+
             file.mv(`./subdomains/cdn/Routes/uploads/${newName}`, (err)=>{
                 if(err)
                     console.log(err)
@@ -52,7 +64,8 @@ module.exports = {
                         size: file.size,
                         type: file.type,
                         author: authJS,
-                        ext: fext
+                        ext: fext,
+                        design: Design
                     }
                     fs.writeFile(__dirname + `/meta/${randName}.json`, JSON.stringify(meta), (d)=>{})
 

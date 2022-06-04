@@ -13,7 +13,6 @@ module.exports = {
         var imgId = req.params.imageId
         if(fs.existsSync(__dirname+`/meta/${imgId}.json`))
         {
-            
             var ImageMeta = JSON.parse(fs.readFileSync(__dirname+`/meta/${imgId}.json`))
             var UserAgent = req.headers["user-agent"] || "null"
             UserAgent = UserAgent.toLowerCase()
@@ -23,10 +22,10 @@ module.exports = {
             {
                 res.status(200).send(
                     createMetaTag("og:image", `https://cdn.protogen.lol/raw/${ImageMeta.name}`)+
-                    createMetaTag("theme-color", `#eda5d1`)+
-                    createMetaTag("og:title", `balls`)+
-                    createMetaTag("og:description", `I am loosing my fucking mind`)+
-                    createMetaTag("twitter:card", `summary_large_image`)
+                    createMetaTag("theme-color", ImageMeta.design.color)+
+                    createMetaTag("og:title", ImageMeta.design.title)+
+                    createMetaTag("og:description", ImageMeta.design.description)+
+                    createMetaTag("twitter:card", ImageMeta.design.image_size)
                 )
             }
             else
