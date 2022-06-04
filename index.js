@@ -5,7 +5,7 @@ const Script = require('./modules/ScriptLoader')
 const subdomain = require('express-subdomain')
 const fs = require('fs')
 const chalk = require('chalk')
-const { send } = require("process")
+const fileUpload = require('express-fileupload')
 
 // The main root is at the bottom of this script, this is because the subdomains need to have priority over loading static content
 // Otherwise the root's static content will be loaded into the subdomains
@@ -21,7 +21,9 @@ root.use((req, res, next) => {
     var second = date.getSeconds();
     var Time = year + "/" + month + "/" + day + " " + hour + ":" + minute + ":" + second;
 
-    Log.info(`${chalk.green(req.ip)} ${chalk.yellow(req.method)} ${chalk.cyan(req.url)}`)
+
+    var UserAgent = req.headers['user-agent'] || "Unknown User Agent"
+    Log.info(`${chalk.green(req.ip)} (${chalk.red(UserAgent)}) ${chalk.yellow(req.method)} ${chalk.cyan(req.url)}`)
     fs.appendFile('./Security/log.txt', `[${Time}] ${req.ip} ${req.method} ${req.url}\n`, ()=>{})
     next()
 })
@@ -38,6 +40,9 @@ root.use(subdomain('api', api))
 const cdn = express.Router()
 Script.Load(cdn, __dirname + "/subdomains/cdn/Routes/")
 cdn.use(express.static(__dirname + "/subdomains/cdn/Static/", {extensions:['html', 'css', 'js', 'htm', 'jpg', 'png', 'gif', 'svg']}))
+cdn.use(fileUpload({
+    limits: { fileSize: 100 * 1024 * 1024 }, // 100MB
+}))
 root.use(subdomain('cdn', cdn))
 
 // < misako.* router > This is owned by Rexi
